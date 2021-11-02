@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "2923ba9c-94c5-4745-b76e-67730d37c2c2",
+		"name": "predictions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all predictions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/v1/predictions",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"predictions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create prediction",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event_id\": 1,\n    \"market_type\": \"1x2\",\n    \"prediction\": \"X\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/predictions",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"predictions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update prediction status",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"win\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/predictions/{{prediction_id}}/status",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"predictions",
+						"{{prediction_id}}",
+						"status"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost"
+		},
+		{
+			"key": "prediction_id",
+			"value": "1"
+		}
+	]
+}
